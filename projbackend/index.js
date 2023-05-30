@@ -5,6 +5,7 @@ import cors from "cors";
 import postRoutes from "./routes/posts.js";
 import userRouter from "./routes/user.js";
 import dotenv from "dotenv";
+import morgan from "morgan";
 dotenv.config();
 
 const app = express();
@@ -12,6 +13,7 @@ const app = express();
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+app.use(morgan());
 
 app.get("/", (req, res) => {
 	res.send("hello to memories api");
